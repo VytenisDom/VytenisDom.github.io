@@ -250,7 +250,7 @@ header {
   height: 120px;
   width: 100%;
   max-width: 1440px;
-  z-index: 20;
+  z-index: 5;
   margin-left: auto;
   margin-right: auto;
   padding: 20px 50px;
@@ -287,6 +287,114 @@ header #navbar ul li {
 
 header #navbar ul li:hover {
   color: white !important;
+}
+
+@media only screen and (max-width: 768px) {
+  header #navbar ul li {
+    display: none;
+  }
+}
+
+.openNav {
+  position: fixed;
+  display: none;
+  z-index: 10;
+  right: 15px;
+  top: 15px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  width: 60px;
+  color: #fff;
+  height: 60px;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  font-size: 22px;
+  padding: 0;
+}
+
+.openNav:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.openNav:focus {
+  outline: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .openNav {
+    display: block;
+  }
+}
+
+.sideBar {
+  position: fixed;
+  z-index: 9;
+  left: -100vw;
+  height: calc(100vh - 60px);
+  background: #222;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100vw;
+  overflow: hidden;
+  -webkit-transition: 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.sideBar ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sideBar ul li {
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.sideBar ul li span {
+  font-weight: bold;
+  display: block;
+  white-space: nowrap;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.sideBar ul li a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff !important;
+}
+
+.sideBar ul li a:hover {
+  background: #111;
+}
+
+.sideBar.navToggle {
+  left: 0;
+}
+
+.sideBar.navToggle li {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
 }
 
 .nav-link.active {
