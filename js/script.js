@@ -91,11 +91,13 @@ $('document').ready(function () {
   $(".openNav").click(function (event) {
     if (!opened) {
       $('.sideBar').addClass('navToggle');
+      $('body').addClass("scroll-block");
       $('#icon').removeClass('fa fa-bars');
       $('#icon').addClass('fa fa-times');
       opened = true;
     } else {
       $('.sideBar').removeClass('navToggle');
+      $('body').removeClass("scroll-block");
       $('#icon').removeClass('fa fa-times');
       $('#icon').addClass('fa fa-bars');
       opened = false;

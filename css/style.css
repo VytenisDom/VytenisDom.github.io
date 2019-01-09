@@ -296,7 +296,7 @@ header #navbar ul li:hover {
 }
 
 .openNav {
-  position: fixed;
+  position: absolute;
   display: none;
   z-index: 10;
   right: 15px;
