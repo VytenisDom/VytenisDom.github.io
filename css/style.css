@@ -225,6 +225,12 @@ body {
   overflow: hidden;
 }
 
+@media only screen and (max-width: 400px) {
+  .wave-container {
+    height: 75px;
+  }
+}
+
 .video-wave {
   position: absolute;
   width: 100%;
@@ -311,6 +317,7 @@ header #navbar ul li:hover {
   transition: 0.2s ease;
   font-size: 22px;
   padding: 0;
+  /*mix-blend-mode: difference;*/
 }
 
 .openNav:hover {
@@ -449,9 +456,16 @@ a {
 }
 
 .index-content {
-  padding: 120px 48px !important;
+  padding: 120px 48px;
   text-align: center;
   position: absolute !important;
+}
+
+@media only screen and (max-width: 400px) {
+  #first-wave {
+    height: 75px;
+    margin-top: -75px;
+  }
 }
 
 .index-main-text {
@@ -471,9 +485,9 @@ a {
 .index-sub-text {
   color: white;
   font-weight: 400;
-  font-family: adobe-garamond-pro;
+  font-family: adobe-garamond-pro-italic;
   font-style: italic;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 1px;
 }
 
@@ -505,12 +519,18 @@ a {
 .welcome .text-banner {
   position: relative;
   overflow: hidden;
-  padding: 96px 48px 96px 0px;
+  padding: 96px 48px 96px 48px;
 }
 
 @media only screen and (max-width: 1024px) {
   .welcome .text-banner {
     padding: 96px 48px 48px 48px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .welcome .text-banner {
+    padding: 96px 28px 48px 28px;
   }
 }
 
@@ -553,9 +573,9 @@ a {
 
 .banner-text-top {
   text-align: center;
-  font-size: 42px;
+  font-size: 40px;
   margin-bottom: 0.67em;
-  font-family: adobe-garamond-pro !important;
+  font-family: adobe-garamond-pro-normal !important;
   font-weight: 400;
   letter-spacing: normal;
   color: rgba(26, 26, 26, 0.9) !important;
@@ -573,7 +593,7 @@ a {
 .about .text-box .text-banner {
   position: relative;
   overflow: hidden;
-  padding: 96px 48px 96px 0px;
+  padding: 96px 48px 96px 48px;
 }
 
 .about .text-box .text-banner div .banner-text-about-top {

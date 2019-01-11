@@ -11,7 +11,8 @@ $color_12: #bbb;
 $proxima_main: 'Proxima Nova',
 Georgia,
 sans-serif;
-$garamond: adobe-garamond-pro;
+$garamond-normal: adobe-garamond-pro-normal;
+$garamond-italic: adobe-garamond-pro-italic;
 $proxima_thin: 'proxima_nova_ltthin';
 $background_color_2: #edeeef;
 $border_color_1: rgba(26, 26, 26, .15);
@@ -262,6 +263,9 @@ body {
 .wave-container {
 	height: 150px;
 	overflow: hidden;
+	@include respond-to(small-mobile) {
+		height: 75px;
+	}
 }
 
 .video-wave {
@@ -317,6 +321,7 @@ header {
 				&:hover {
 					color: white !important;
 				}
+
 				@include respond-to(mobile) {
 					display: none;
 				}
@@ -340,9 +345,10 @@ header {
 	transition: 0.2s ease;
 	font-size: 22px;
 	padding: 0;
+	/*mix-blend-mode: difference;*/
 
 	&:hover {
-		background: rgba(0,0,0,0.25);
+		background: rgba(0, 0, 0, 0.25);
 	}
 
 	&:focus {
@@ -465,9 +471,16 @@ a {
 }
 
 .index-content {
-	padding: 120px 48px !important;
+	padding: 120px 48px;
 	text-align: center;
 	position: absolute !important;
+}
+
+#first-wave {
+	@include respond-to(small-mobile) {
+		height: 75px;
+		margin-top: -75px;
+	}
 }
 
 .index-main-text {
@@ -487,9 +500,9 @@ a {
 .index-sub-text {
 	color: white;
 	font-weight: 400;
-	font-family: $garamond;
+	font-family: $garamond-italic;
 	font-style: italic;
-	font-size: 20px;
+	font-size: 22px;
 	letter-spacing: 1px;
 }
 
@@ -518,10 +531,13 @@ a {
 	.text-banner {
 		position: relative;
 		overflow: hidden;
-		padding: 96px 48px 96px 0px;
+		padding: 96px 48px 96px 48px;
 
 		@include respond-to(laptop) {
 			padding: 96px 48px 48px 48px;
+		}
+		@include respond-to(small-mobile) {
+			padding: 96px 28px 48px 28px;
 		}
 
 		.banner-text {
@@ -560,9 +576,9 @@ a {
 
 .banner-text-top {
 	text-align: center;
-	font-size: 42px;
+	font-size: 40px;
 	margin-bottom: 0.67em;
-	font-family: $garamond !important;
+	font-family: $garamond-normal !important;
 	font-weight: 400;
 	letter-spacing: normal;
 	color: $main9 !important;
@@ -578,7 +594,7 @@ a {
 		.text-banner {
 			position: relative;
 			overflow: hidden;
-			padding: 96px 48px 96px 0px;
+			padding: 96px 48px 96px 48px;
 
 			div {
 				.banner-text-about-top {
