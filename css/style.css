@@ -234,7 +234,7 @@ body {
 .video-wave {
   position: absolute;
   width: 100%;
-  z-index: 20;
+  z-index: 5;
   margin-top: -150px;
 }
 
@@ -338,7 +338,7 @@ header #navbar ul li:hover {
   position: fixed;
   z-index: 9;
   left: -100vw;
-  height: 100vh;
+  height: 110vh;
   background: #222;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
