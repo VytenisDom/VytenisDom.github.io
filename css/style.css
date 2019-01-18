@@ -71,6 +71,20 @@ body {
   padding: 20px;
 }
 
+@media only screen and (max-width: 1024px) {
+  .modal-content-parent .modal-info .col-md-5 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .modal-content-parent .modal-info .col-md-7 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .modal-content-parent .modal-info h1 {
   padding: 0px 10px;
 }
@@ -159,6 +173,10 @@ body {
   font-weight: 700;
 }
 
+#slider1 :first-child {
+  border: none !important;
+}
+
 #carousel img {
   display: block;
   opacity: .5;
@@ -173,18 +191,6 @@ body {
 .scroll {
   overflow-y: scroll;
   max-height: calc(100vh - 40px);
-}
-
-@media only screen and (max-width: 768px) {
-  .scroll {
-    max-height: calc(100vh - 570px);
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .scroll {
-    max-height: calc(100vh - 470px);
-  }
 }
 
 .scroll::-webkit-scrollbar-track {
