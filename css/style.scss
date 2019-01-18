@@ -264,7 +264,7 @@ body {
 	height: 150px;
 	overflow: hidden;
 
-	@include respond-to(small-mobile) {
+	@include respond-to(fiveHalf) {
 		height: 75px;
 	}
 }
@@ -346,7 +346,6 @@ header {
 	transition: 0.2s ease;
 	font-size: 22px;
 	padding: 0;
-	mix-blend-mode: difference;
 
 	&:hover {
 		background: rgba(0, 0, 0, 0.25);
@@ -478,7 +477,7 @@ a {
 }
 
 #first-wave {
-	@include respond-to(small-mobile) {
+	@include respond-to(fiveHalf) {
 		height: 75px;
 		margin-top: -75px;
 	}
@@ -504,6 +503,7 @@ a {
 	font-family: $garamond-italic;
 	font-style: italic;
 	font-size: 22px;
+	text-rendering: optimizeLegibility;
 	letter-spacing: 1px;
 }
 
@@ -538,7 +538,7 @@ a {
 			padding: 96px 48px 48px 48px;
 		}
 
-		@include respond-to(small-mobile) {
+		@include respond-to(fiveHalf) {
 			padding: 96px 28px 48px 28px;
 		}
 
@@ -567,10 +567,6 @@ a {
 
 			@include respond-to(laptop) {
 				font-size: 22px;
-			}
-
-			@include respond-to(fiveHalf) {
-				font-size: 19px;
 			}
 		}
 	}

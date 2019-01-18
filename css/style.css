@@ -225,7 +225,7 @@ body {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 550px) {
   .wave-container {
     height: 75px;
   }
@@ -317,7 +317,6 @@ header #navbar ul li:hover {
   transition: 0.2s ease;
   font-size: 22px;
   padding: 0;
-  mix-blend-mode: difference;
 }
 
 .openNav:hover {
@@ -461,7 +460,7 @@ a {
   position: absolute !important;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 550px) {
   #first-wave {
     height: 75px;
     margin-top: -75px;
@@ -488,6 +487,7 @@ a {
   font-family: adobe-garamond-pro-italic;
   font-style: italic;
   font-size: 22px;
+  text-rendering: optimizeLegibility;
   letter-spacing: 1px;
 }
 
@@ -528,7 +528,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 550px) {
   .welcome .text-banner {
     padding: 96px 28px 48px 28px;
   }
@@ -562,12 +562,6 @@ a {
 @media only screen and (max-width: 1024px) {
   .welcome .text-banner .banner-text {
     font-size: 22px;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-  .welcome .text-banner .banner-text {
-    font-size: 19px;
   }
 }
 
