@@ -848,6 +848,22 @@ a {
 	position: relative;
 }
 
+.hackathon-img-container{
+	width: 100%;
+	height: 30vh;
+	box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0);
+	background-image: url("../images/hk.jpg");
+	background-size: cover;
+	background-position: center;
+	filter: grayscale(1);
+	border-radius: 30px;
+	margin-bottom: 1.33em;
+
+	@include respond-to(desktop) {
+		height: 45vh;
+	}
+}
+
 fade {
 	position: absolute;
 	bottom: 0px;
@@ -859,6 +875,20 @@ fade {
 
 .hide {
 	display: none;
+}
+
+.adventures-btn {
+	position: relative;
+	border: 2px solid #000;
+	color: $black;
+	padding: 15px 34px !important;
+	margin-bottom: 15px;
+
+	&:hover {
+		color: white !important;
+		background-color: $black;
+		cursor: pointer;
+	}
 }
 
 .see-more-btn {
