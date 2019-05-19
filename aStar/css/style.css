@@ -59,9 +59,13 @@ html {
 }
 
 .checked {
-    background: cyan;
+    /*background: cyan;*/
 }
 
 .selected {
-    background: orange !important;
+    /*background: orange !important;*/
+}
+
+.painted_went{
+   background: orange !important;
 }

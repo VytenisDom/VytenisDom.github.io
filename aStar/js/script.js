@@ -1,12 +1,15 @@
 $('document').ready(function () {
     var startx = 1;
     var starty = 1;
-    var finishx = 10;
-    var finishy = 10;
+    var finishx = 30;
+    var finishy = 30;
+    var interval = 0;
+    var interval_growth = 30;
     var solutionIsntFound = true;
     var noPath = true;
     var theresStillHope = true;
     var steps_taken = 1; // First step in mind
+    var actual_steps_taken = 1;
     initializeGrid();
 
     function initializeGrid() {
@@ -39,6 +42,7 @@ $('document').ready(function () {
         checkNeighbors(startx, starty);
         while (solutionIsntFound && !noPath) {
             steps_taken++;
+            actual_steps_taken++;
             var parentX = $("div[selected = selected]").attr("x");
             var parentY = $("div[selected = selected]").attr("y");
             $("div[selected = selected]").attr("selected", false);
@@ -47,7 +51,6 @@ $('document').ready(function () {
                 console.log("NO PATH. Now @ step : ", steps_taken);
                 // Actually don't if it's not a step
                 if (steps_taken - 1 > 0) {
-                    console.log("GOING BACK TO STEP : ", steps_taken - 1);
                     steps_taken -= 1;
                     parentX = $("div[step = " + steps_taken + "]").attr("x");
                     parentY = $("div[step = " + steps_taken + "]").attr("y");
@@ -93,7 +96,7 @@ $('document').ready(function () {
                 }
                 // If there's at least one spot where it can go, there's still some path
                 noPath = false;
-                // Don't check if it has been checked already, just take the checked f's
+                // Don't check if it has been checked already, just take the checked f's <!!!>
                 if ($("div[x=" + newX + "][ y=" + newY + "]").hasClass("checked")) {
                     var f = $("div[x=" + newX + "][ y=" + newY + "]").attr("f");
                 } else {
@@ -101,7 +104,7 @@ $('document').ready(function () {
                     //console.log("Doing with: ", newX, newY);
                     var g = getGCost(newX, newY, startx, starty);
                     var h = getHCost(newX, newY, finishx, finishy);
-                    var f = g + h;
+                    var f = round(g + h, 2);
                     $("div[x=" + newX + "][ y=" + newY + "]").attr("g", g).attr("h", h).attr("f", f).addClass("checked");
                 }
                 // TODO: IF EQUAL, DECIDE BY H COSTS.
@@ -114,23 +117,41 @@ $('document').ready(function () {
         }
         if (solutionIsntFound) {
             console.log("Choosing : ", least_x, least_y, " with f of : ", least);
-            $("div[x=" + least_x + "][ y=" + least_y + "]").attr("step", steps_taken).addClass("selected").attr("selected", true);
+            $("div[x=" + least_x + "][ y=" + least_y + "]").attr("step", steps_taken).attr("actual_steps_taken", actual_steps_taken).addClass("selected").attr("selected", true);
         }
         return noPath;
     }
+    function visualise(){
+        for(var i = 1 ;i < actual_steps_taken ; i++){
+            var x = $("div[actual_steps_taken=" + i + "]").attr("x");
+            var y = $("div[actual_steps_taken=" + i + "]").attr("y");
+            goo(x, y, interval, i);
+            interval+=interval_growth;
+        }
+    }
+    function paint_went(x, y, i){
+        $("div[x=" + x + "][ y=" + y + "]").addClass("painted_went");
+        console.log("Visualizing at: " + x + " " + y + " @ step " + i);
+    }
+
+    function goo(x, y, interval, i){
+        setTimeout(function () {
+            paint_went(x, y, i);
+        }, interval);
+    }
 
     function getGCost(fx, fy, sx, sy) {
-        return Math.sqrt(Math.pow(fx - sx, 2) + Math.pow(fy - sy, 2));
+        return round(Math.sqrt(Math.pow(fx - sx, 2) + Math.pow(fy - sy, 2)), 2);
     }
 
     function getHCost(sx, sy, fx, fy) {
-        return Math.sqrt(Math.pow(fx - sx, 2) + Math.pow(fy - sy, 2));
+        return round(Math.sqrt(Math.pow(fx - sx, 2) + Math.pow(fy - sy, 2)), 2);
     }
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
-
+     
     async function waitABit() {
         console.log('Taking a break...');
         await sleep(2000);
@@ -159,6 +180,11 @@ $('document').ready(function () {
         return Math.sqrt(Math.pow(fx - sx, 2) + Math.pow(fy - sy, 2));
     }
 
+    function round(value, precision) {
+        var multiplier = Math.pow(10, precision || 0);
+        return Math.round(value * multiplier) / multiplier;
+    }
+
     function Create2DArray(rows) {
         var arr = [];
         for (var i = 0; i < rows; i++) {
@@ -179,10 +205,13 @@ $('document').ready(function () {
             }
         }
     });
-
     $("#start").on('click', function (event) {
         // Starting aStar algorithm
         aStar();
+        console.log("PATH FOUND.");
+        console.log("STARTED VISUALIZATION.");
+        // Visualizing
+        visualise();
     });
     /* $("#restart").on('click', function (event) {
          // Restarting aStar algorithm
