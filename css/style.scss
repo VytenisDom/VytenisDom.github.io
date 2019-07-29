@@ -531,7 +531,7 @@ a {
 	position: absolute !important;
 }
 
-#first-wave {
+.first-two-waves {
 	@include respond-to(fiveHalf) {
 		height: 75px;
 		margin-top: -75px;
@@ -1069,7 +1069,7 @@ footer {
 
 		.footer-initials {
 			.all-rights-reserved {
-				color: rgba(255, 255, 255, .4);
+				color: rgba(255, 255, 255, .7);
 				text-align: center;
 
 				h6 {
