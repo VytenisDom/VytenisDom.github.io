@@ -559,7 +559,7 @@ a {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  position: relative;
+  position: absolute;
 }
 
 @media only screen and (min-width: 1600px) {
@@ -989,10 +989,8 @@ fade {
   color: #000;
   padding: 15px 34px !important;
   margin: 30px 0;
-  -webkit-transition: 0.1s background-color linear,
- 0.1s color linear;
-  transition: 0.1s background-color linear,
- 0.1s color linear;
+  -webkit-transition: 0.1s background-color linear, 0.1s color linear;
+  transition: 0.1s background-color linear, 0.1s color linear;
 }
 
 .contact .contact-btn:hover {
