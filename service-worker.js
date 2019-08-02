@@ -1,26 +1,21 @@
-let CACHE_NAME = 'sw-v1'
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then(cache => cache.addAll('./404.html'))
-  )
-})
-self.addEventListener('fetch', (event) => {
-  if (event.request.method === 'GET') {
+var responseContent =
+    "<html>" +
+    "<body>" +
+    "<style>" +
+    "body {text-align: center; background-color: #333; color: #eee;}" +
+    "</style>" +
+    "<h1>Video Voter</h1>" +
+    "<p>There seems to be a problem with your connection.</p>" +
+    "</body>" +
+    "</html>";
+
+self.addEventListener("fetch", function(event) {
     event.respondWith(
-      caches.match(event.request)
-      .then((cached) => {
-        var networked = fetch(event.request)
-          .then((response) => {
-            let cacheCopy = response.clone()
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(event.request, cacheCopy))
-            return response;
-          })
-          .catch(() => caches.match(offlinePage));
-        return cached || networked;
-      })
-    )
-  }
-  return;
+        fetch(event.request).catch(function() {
+            return new Response(
+                responseContent,
+                {headers: {"Content-Type": "text/html"}}
+            );
+        })
+    );
 });

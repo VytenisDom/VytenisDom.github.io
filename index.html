@@ -6,9 +6,15 @@
   <title>Junior Web Developer</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141281732-1"></script>
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-    }
+    if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js")
+        .then(function (registration) {
+            console.log("Service Worker registered with scope:", 
+                         registration.scope);
+        }).catch(function (err) {
+        console.log("Service worker registration failed:", err);
+    });
+}
 
     //document.addEventListener('touchstart', onTouchStart, {passive: true});
 
@@ -22,7 +28,7 @@
   </script>
   <meta name="Description" content="Junior Developer Vytenis Domaševičius Javascript Let's Make Great Things">
   <link rel="manifest" href="manifest.json">
-  <meta name=”theme-color” content="#333333">
+  <meta name="theme-color" content="#333333">
   <link rel="shortcut icon" href="/favicon/favicon.ico">
   <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="196x196" href="/favicon/favicon-192.png">
