@@ -458,8 +458,8 @@ header #navbar ul li:hover {
 
 .hamburger {
   top: calc(50% - 2px);
-  left: calc(50% - 20px);
-  width: 40px;
+  left: calc(50% - 15px);
+  width: 30px;
   height: 4px;
   background: #FCFCFC;
   position: absolute;
@@ -481,17 +481,13 @@ header #navbar ul li:hover {
   content: '';
   left: 0;
   position: absolute;
-  width: 40px;
+  width: 30px;
   height: 4px;
   background: #FCFCFC;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   -webkit-transition: 0.5s;
   transition: 0.5s;
-}
-
-.scrollWidth {
-  right: 30px;
 }
 
 .openNav.active .hamburger:before {
@@ -921,6 +917,18 @@ a {
           filter: grayscale(1);
   border-radius: 30px;
   margin-bottom: 1.33em;
+}
+
+@media only screen and (max-width: 550px) {
+  .hackathon-img-container {
+    background-image: url("../images/hk_mobile.jpg");
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .hackathon-img-container {
+    background-image: url("../images/hk_laptop.jpg");
+  }
 }
 
 @media only screen and (min-width: 1600px) {

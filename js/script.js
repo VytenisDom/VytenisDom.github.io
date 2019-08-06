@@ -93,13 +93,11 @@ $('document').ready(function () {
       $('.sideBar').addClass('navToggle');
       $('body').addClass("scroll-block");
       $('.openNav').addClass('active');
-      $('.openNav').addClass('scrollWidth');
       opened = true;
     } else {
       $('.sideBar').removeClass('navToggle');
       $('body').removeClass("scroll-block");
       $('.openNav').removeClass('active');
-      $('.openNav').removeClass('scrollWidth');
       opened = false;
     }
   });
