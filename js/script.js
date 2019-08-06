@@ -65,7 +65,7 @@ $('document').ready(function () {
   // "See more" section expansion w/ animations
   $('.see-more-btn').on('click', function (event) {
     // Setting the max-height value to the max-content value (If you set straight maxheight = "max-content", then transition (animation) doesn't work.)
-    document.getElementById("see-more").style.maxHeight = height;
+    document.getElementById("see-more").style.maxHeight = height + "px";
     $('fade').addClass('hide');
     document.getElementById("see-more-text").innerHTML = "Show less";
     if (i == 0) {
@@ -92,14 +92,14 @@ $('document').ready(function () {
     if (!opened) {
       $('.sideBar').addClass('navToggle');
       $('body').addClass("scroll-block");
-      $('#icon').removeClass('fa fa-bars');
-      $('#icon').addClass('fa fa-times');
+      $('.openNav').addClass('active');
+      $('.openNav').addClass('scrollWidth');
       opened = true;
     } else {
       $('.sideBar').removeClass('navToggle');
       $('body').removeClass("scroll-block");
-      $('#icon').removeClass('fa fa-times');
-      $('#icon').addClass('fa fa-bars');
+      $('.openNav').removeClass('active');
+      $('.openNav').removeClass('scrollWidth');
       opened = false;
     }
   });

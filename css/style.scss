@@ -60,9 +60,9 @@ body {
 	color: $main;
 	font-family: $proxima_main !important;
 	font-size: 18px !important;
-	font-size: 1.8rem !important;
+	// font-size: 1.8rem !important;
 	font-weight: 300 !important;
-	line-height: 1.875 !important;
+	// line-height: 1.875 !important;
 	margin: 0 !important;
 	position: relative;
 }
@@ -481,6 +481,59 @@ header {
 	color: $black !important;
 }
 
+.hamburger {
+	top: calc(50% - 2px);
+	left: calc(50% - 20px);
+	width: 40px;
+	height: 4px;
+	background: #FCFCFC;
+	position: absolute;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	transition: 0.5s;
+
+	&:before {
+		top: -10px;
+	}
+
+	&:after {
+		top: 10px;
+	}
+
+	&:before,
+	&:after {
+		content: '';
+		left: 0;
+		position: absolute;
+		width: 40px;
+		height: 4px;
+		background: #FCFCFC;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		transition: 0.5s;
+	}
+
+}
+
+.scrollWidth{
+	right: 30px;
+}
+
+.openNav.active .hamburger:before {
+	top: 0;
+	transform: rotate(135deg);
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.openNav.active .hamburger {
+	background:rgba(0,0,0,0);
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.openNav.active .hamburger:after {
+	top: 0;
+	transform: rotate(225deg);
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .banner-button {
 	padding: 21px 34px;
 	background: transparent;
@@ -849,7 +902,7 @@ a {
 	position: relative;
 }
 
-.hackathon-img-container{
+.hackathon-img-container {
 	width: 100%;
 	height: 30vh;
 	box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0);
@@ -997,7 +1050,7 @@ fade {
 	}
 }
 
-.fa-bars{
+.fa-bars {
 	font-family: "Font Awesome\ 5 Free";
 	font-weight: 900;
 	-webkit-font-smoothing: antialiased;
@@ -1005,8 +1058,9 @@ fade {
 	font-style: normal;
 	font-variant: normal;
 	text-rendering: auto;
-	line-height: 1;		
-	&:before{
+	line-height: 1;
+
+	&:before {
 		content: "\f0c9";
 	}
 }
@@ -1091,7 +1145,7 @@ footer {
 				}
 			}
 		}
-		
+
 		.icons {
 			text-align: center;
 			padding: 24px 0;
