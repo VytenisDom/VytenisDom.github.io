@@ -7,6 +7,17 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <p onclick="goImg()">404 not working very sorry</p>
+  <div id="Lmao"></div>
 </body>
+<script>
+  function goImg(){
+    var img = document.createElement("img");
+    img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
+
+    var src = document.getElementById("Lmao");
+    src.appendChild(img);
+  }
+
+</script>
 </html>

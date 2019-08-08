@@ -32,23 +32,18 @@ $('document').ready(function () {
   });
   // Popup on button click
   $(".button-projects").on('click', function (event) {
+    // If the modal is pressed for the first time - GET it
     $("#modal" + this.id).addClass("active-pop");
+    if($("#modal" + this.id).attr("loaded") == "false"){
+      loadModal(this.id);
+      $("#modal" + this.id).attr("loaded", "true");
+    }
     $('body').addClass("scroll-block");
     $('#slider' + this.id).resize(); // Due to the way flexslider is designed, if the parents width is unknown (display none'd), every slide is being given 0px of width
     $('#carousel' + this.id).resize(); // Therefore, if resized just after the modal popup, it gets the widths correctly. Also, stack overflow says to do so.
     setTimeout(function () { // This is spaghetti, but if you don't time out it for a little bit it doesn't animate..
       $('.modal-pop').addClass("revealing-pop");
     }, 1);
-  });
-  // Popup close on x click
-  $(".closex").on('click', function (event) {
-    $('body').removeClass("scroll-block");
-    $('.modal-pop').removeClass("revealing-pop");
-    $('.modal-pop').addClass("removing-pop");
-    setTimeout(function () {
-      $('.modal-pop').removeClass("active-pop");
-      $('.modal-pop').removeClass("removing-pop");
-    }, 750);
   });
   // Popup close on ESC press
   $(document).keyup(function (e) {
@@ -181,3 +176,37 @@ function sendEmail(email) {
       }
     });
 }
+
+function loadModal(id) {
+  var element, file, xhttp;
+      element = document.getElementById("modal" + id);
+      file = "../modules/modal" + id + ".html";
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            element.innerHTML = this.responseText;
+
+            $.getScript("js/flexslider.js");
+            
+
+          } else if (this.status == 404) {
+            element.innerHTML = "Page not found.";
+          }
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+}
+
+function closeModal(){
+  $('body').removeClass("scroll-block");
+  $('.modal-pop').removeClass("revealing-pop");
+  $('.modal-pop').addClass("removing-pop");
+  setTimeout(function () {
+    $('.modal-pop').removeClass("active-pop");
+    $('.modal-pop').removeClass("removing-pop");
+  }, 750);
+};
