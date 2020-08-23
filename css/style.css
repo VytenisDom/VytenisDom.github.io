@@ -802,6 +802,10 @@ a {
   opacity: 1;
 }
 
+.projectWrapper {
+  margin-bottom: 30px;
+}
+
 .white {
   background-color: #fff;
 }
